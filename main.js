@@ -191,6 +191,309 @@ import random from './getRandom'
   // false, '', null, undefinded, 0, -0, NaN -> (Not a Number)
   // '1 + undefined' => NaN
 
-  if ('false') {
-  console.log(123)
-  }
+  // if ('false') {
+  // console.log(123)
+  // }
+
+  
+// -----------------------------
+  // 함수 복습
+    
+  // function sum(x, y) {
+    //   console.log(x+y)
+    // }
+
+    // sum(1, 3)
+    // sum(4, 13)
+
+
+    // ----------------------------
+    // function sum(x, y) {
+    //   return x + y
+    // }
+
+    // const a = sum(1, 3)
+    // const b = sum(4, 13)
+
+    // console.log(a)
+    // console.log(b)
+    // console.log(a + b)
+
+    // ----------------------------
+    // function sum() {
+    //   console.log(arguments)
+    //   return arguments [0] + arguments[1]
+    // }
+
+    // console.log(sum(7, 3))
+
+    // ----------------------------
+      // 화살표 함수
+      // () => {} vs function () {}
+
+
+      // const double = function (x) {
+      //   return x * 2
+      // }
+      // console.log('double: ', double(7))
+
+      // const doubleArrow = (x) => {
+      //   return x * 2
+      // }
+      // console.log('doubleArrow', doubleArrow(7))
+
+      // const doubleArrow = (x) => x * 2 // 축약형
+      // {}로 사용할 수 없음. 사용하려면 ( {   } )형태로 사용해야함
+ 
+
+    // ----------------------------
+      // 즉시실행함수
+      // IIFE, Immediately-Invoked Function Expression
+
+        // const a = 7
+        // function double() {
+        //   console.log(a * 2)
+        // }
+        // double();
+
+        // (function () {
+        //   console.log(a * 2)
+        // }) () ;
+
+        // (function () {
+        //   console.log(a * 2)
+        // }()) 
+
+        
+    // ----------------------------
+      // 호이스팅(Hoisting)
+      // 함수 선언부가 유효범위 최상단으로 끌어올려지는 현상
+
+      // const a = 7
+
+      // double() // 함수는 선언되는 곳 아래로 있어야함. 원칙적으로 현재 위치는 ERROR
+      // double()
+
+      
+      // const double = function () { //함수표현 'const' 보유
+      //   console.log(a * 2)
+      // }
+
+      // function double() {  // 함수표현 삭제&함수선언 으로 변경
+      //   console.log(a * 2)
+      // }
+
+    // ----------------------------
+      // 타이머 함수
+        // setTimeout(함수, 시간) : 일정 시간 후 함수 실행
+        // setInterval(함수, 시간) : 시간 간격마다 함수 실행
+        // clearTimeout() : 설정된 Timeout 함수를 종료
+        // clearInterval(): 설정된 Interval 함수를 종료
+
+        // setTimeout(function () {
+        //   console.log('Heropy')
+        // }, 3000) // 시간은 ms - 1초는 1000ms
+
+        // const timer = setTimeout(() => {
+        //   console.log('Heropy')
+        // }, 3000)
+
+        // const timer = setInterval(() => {
+        //   console.log('Heropy')
+        // }, 3000)
+
+        // const h1El = document.querySelector('h1')
+        // h1El.addEventListener('click', () => {
+        //   clearInterval(timer)
+        // })
+
+    // 콜백(Callback)
+    // 함수의 인수로 사용되는 함수
+
+    // setTimeout(함수, 시간)
+
+      // function timeout(cb) {
+      //   setTimeout(() => {
+      //     console.log('Heropy')
+      //     cb()
+      //   }, 3000)
+      // }
+      // timeout(() => {
+      //   console.log('Done!')
+      // })
+
+
+      // -----------------------------------------------------------------------------------------------
+      // JS 클래스 
+
+      // 생성자 함수
+        // const heropy = {
+        //   firstName: 'Heropy',
+        //   lastName: 'park',
+        //   getFullName: function () {
+        //     return `${this.firstName} ${heropy.lastName}` // this는 heropy를 지칭
+        //   }
+        // }
+
+        // console.log(heropy.getFullName())
+
+        // const amy = {
+        //   firstName: 'Amy',
+        //   lastName: 'Park',
+        //   getFullName: function () {
+        //     return `${this.firstName} ${this.lastName}` // this는 heropy를 지칭
+        //   }
+        // }
+
+        // console.log(amy.getFullName())
+
+        // const neo = {
+        //   firstName: 'neo',
+        //   lastName: 'smith',
+        //   getFullName: function () {
+        //     return `${this.firstName} ${this.lastName}` // this는 heropy를 지칭
+        //   }
+        // }
+
+        // console.log(neo.getFullName())
+
+      // function User(first, last) { // 생성자 함수는 파스칼 케이스로 앞에 글자를 대문자로함.
+      //   this.firstName = first
+      //   this.lastName = last
+      //   }
+      // User.prototype.getFullName = function () {      // prototype 중요, 자바스크립트에서는 매우 많이 사용해서 prototype 기반이라고도 함.
+      //   return `${this.firstName} ${this.lastName}`
+      // }
+
+      // const heropy = new User('Heropy', 'Park') // user = 생성자 함수, heropy = 인스턴스
+      // const amy = new User('Amy', 'Clarke') 
+      // const neo = new User('Neo', 'Smith') 
+      
+      // console.log(heropy.getFullName())
+      // console.log(amy)
+      // console.log(neo)
+
+      // const heropy = {} //  리터럴 방식 = 특정한 과정을 거치지 않고 쉽게 데이터를 생성하는 방식
+
+
+      // this
+      // 일반(Normal) 함수는 호출 위치에서 따라 this 정의!
+      // 화살표(Arrow) 함수는 자신이 선언된 함수 범위에서 this 정의!
+
+      // const heropy = {
+      //   name: 'Heropy',
+      //   normal: function () {
+      //     console.log(this.name)
+      //   },
+      //   arrow: () => {
+      //     console.log(this.name)
+      //   }
+      // }
+
+      // heropy.normal()
+      // heropy.arrow()
+
+      // const amy = {
+      //   name: 'Amy',
+      //   normal: heropy.normal,
+      //   arrow: heropy.arrow
+      // }
+      // amy.normal()
+      // amy.arrow()
+
+    // const timer = {
+    //   name: 'Heropy!!',
+    //   timeout: function () {
+    //     //setTimeout(함수{콜백}, 시간)
+    //     setTimeout(() => {
+    //       console.log(this.name)
+    //     }, 2000)
+    //   }
+    // }
+
+    // timer.timeout()
+
+    // const heropy = {
+    //   name: 'Heropy',
+    //   normal() {
+    //     console.log(this.name)
+    //   },
+    //   arrow: () => {
+    //     console.log(this.name)
+    //   }
+    // }
+
+    // heropy.normal()
+    // heropy.arrow()
+
+
+    // ES6 Class
+
+      // function User(first, last) { 
+      //   this.firstName = first
+      //   this.lastName = last
+      //   }
+      // User.prototype.getFullName = function () {      
+      //   return `${this.firstName} ${this.lastName}`
+      // }
+
+      // class User {
+      //   constructor(first, last) {
+      //     this.firstName = first
+      //     this.lastName = last
+      //   }
+      //   getFullName() {
+      //     return `${this.firstName} ${this.lastName}`
+      //   }
+      // }
+
+      // const heropy = new User('Heropy', 'Park') 
+      // const amy = new User('Amy', 'Clarke') 
+      // const neo = new User('Neo', 'Smith') 
+      
+      // console.log(heropy.getFullName())
+      // console.log(amy.getFullName())
+      // console.log(neo.getFullName())
+
+
+    // 클래스 상속&확장 개념
+      class Vehicle {
+        constructor(name, wheel) {
+          this.name = name
+          this.wheel = wheel
+        }
+      }
+      const myVehicle = new Vehicle('운송수단', '2')
+      console.log(myVehicle)
+      
+      class Bicycle extends Vehicle { // extends 확장 또는 상속의 개념
+        constructor(name, wheel) {
+          super(name, wheel)
+        }
+      }
+      const myBicycle = new Bicycle('삼천리', 2)
+      const daughtersBicycle = new Bicycle('세발, 3')
+      console.log(myBicycle)
+      console.log(daughtersBicycle)
+
+      class Car extends Vehicle {
+        constructor(name, wheel, license) {
+          super(name, wheel)
+          this.license = license
+        }
+      }
+      
+      const myCar = new Car('벤츠', 4, true)
+      const daughtersCar = new Car('포르쉐', 4, false)
+
+      console.log(myCar)
+      console.log(daughtersCar)
+
+
+
+
+
+
+
+
+
