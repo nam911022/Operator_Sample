@@ -457,42 +457,278 @@ import random from './getRandom'
 
 
     // 클래스 상속&확장 개념
-      class Vehicle {
-        constructor(name, wheel) {
-          this.name = name
-          this.wheel = wheel
-        }
-      }
-      const myVehicle = new Vehicle('운송수단', '2')
-      console.log(myVehicle)
+      // class Vehicle {
+      //   constructor(name, wheel) {
+      //     this.name = name
+      //     this.wheel = wheel
+      //   }
+      // }
+      // const myVehicle = new Vehicle('운송수단', '2')
+      // console.log(myVehicle)
       
-      class Bicycle extends Vehicle { // extends 확장 또는 상속의 개념
-        constructor(name, wheel) {
-          super(name, wheel)
-        }
-      }
-      const myBicycle = new Bicycle('삼천리', 2)
-      const daughtersBicycle = new Bicycle('세발, 3')
-      console.log(myBicycle)
-      console.log(daughtersBicycle)
+      // class Bicycle extends Vehicle { // extends 확장 또는 상속의 개념
+      //   constructor(name, wheel) {
+      //     super(name, wheel)
+      //   }
+      // }
+      // const myBicycle = new Bicycle('삼천리', 2)
+      // const daughtersBicycle = new Bicycle('세발, 3')
+      // console.log(myBicycle)
+      // console.log(daughtersBicycle)
 
-      class Car extends Vehicle {
-        constructor(name, wheel, license) {
-          super(name, wheel)
-          this.license = license
-        }
-      }
+      // class Car extends Vehicle {
+      //   constructor(name, wheel, license) {
+      //     super(name, wheel)
+      //     this.license = license
+      //   }
+      // }
       
-      const myCar = new Car('벤츠', 4, true)
-      const daughtersCar = new Car('포르쉐', 4, false)
+      // const myCar = new Car('벤츠', 4, true)
+      // const daughtersCar = new Car('포르쉐', 4, false)
 
-      console.log(myCar)
-      console.log(daughtersCar)
+      // console.log(myCar)
+      // console.log(daughtersCar)
+
+  // --------------------------------------------------------------
+  // Js - String
+  // string.prototype.indexOf()
+  
+  //  const result = 'Hello world!'.indexOf('Heropy')
+  //  console.log(result)
+  
+   // String.prototype indexOf()
+
+  //  const str = '0123'
+  // //  console.log(str.length) =
+  //     console.log('0123'.length)
+
+  // const str = 'Hello world!'
+  // const str = 'thesecon@gmail.com'
+  // const str = '     Hello world    '
+
+  // console.log(str.indexOf('HEROPY') !== -1) // '!'로 인해 반대로 나와서 False 표시
+
+  // console.log(str.slice(6, 11)) // 어디에서 시작해서 어디에서 끝낼것이냐 (0, 3)
+  // console.log(str.replace('world', 'Heropy')) // 앞에 있는 문자데이터에서 두번째 인수를 교체해준다.
+  // console.log(str.replace(' world!', '')) // 
+  // console.log(str.match(/.+(?=@)/)[0]) // 정규표현식 /.+(?=@)/[]  '[]'부분이 배열데이터로 반환
+  // console.log(str.trim()) // 앞에서 시작하는 부분과 뒤에서 시작하는 부분을 제거하겠다.
+
+  // const pi = 3.14159265358979
+  // console.log(pi)
+
+  // const str = pi.toFixed(2) // toFixed로 반환하면 문자데이터로 변환됨
+  // console.log(str)
+  // console.log(typeof str) // typeof 종류를 알려줌(문자인지, 숫자인지)
+
+  // const integer = parseInt(str) // parse 분석 int 정수 _ 정수로 반환
+  // const float = parseFloat(str) // 소수점 자리의 숫자도유지하면서 문자데이터를 숫자로 반환
+  // console.log(integer)
+  // console.log(float)
+  // console.log(typeof integer, typeof float)
+
+    // console.log('abs:', Math.abs(-12))
+    
+    // console.log('min:', Math.min(2, 8))
+
+    // console.log('max:', Math.max(2, 8))
+
+    // console.log('ceil:', Math.ceil(3.14))
+
+    // console.log('floor:', Math.floor(3.14))
+
+    // console.log('round:', Math.round(3.14))
+
+    // console.log('random:', Math.random())
 
 
+  // .length(길이)
+
+  // const numbers = [1, 2, 3, 4]
+  // const fruits = ['Apple', 'Banana', 'Cherry']
+
+  // console.log(numbers.length)
+  // console.log(fruits.length)
+  // console.log([1,2 ].length)
+
+  // console.log([],len)
+
+  
+  // --------------------------------------------------------------
+  // array mdn
+
+  // .concat()
+  // -> 붙어있는 배열데이터의 아이템 갯수만큼 인수로 사용된 콜백함수가 반복적으로 실행됨
+
+  // console.log(numbers.concat(fruits)) // 2개의 배열데이터를 병합해서 새로운 배열데이터를 그 자리에 반환
+  // console.log(numbers) // Point: 원본의 데이터는 손상되지 않음(중요)
+  // console.log(fruits)
 
 
+  // .forEach(배열데이터 아이템의 갯수만큼 특정한 콜백함수를 반복적으로 실행하는 용도로 사용되는 메소드 )
 
+  // fruits.forEach(function (item, i) { 
+  //   console.log(item, i)
+  // })
+  // element, index, array 는 각각 매개변수 // item, fruit로 변경해서 사용가능
+  // element -> apple, Banana, Cherry
+  // index -> 0, 1, 2 // i로 줄이는 것 가능
+  // array -> forEach가 붙어있는 배열데이터(fruits)를 지칭 // 잘안씀 // 삭제해도 문제 없음
+
+  // .map()
+
+  // const a = fruits.forEach(function (fruit, index) {
+  //   console.log(`${fruit}-${index}`) // '`' 백팁기호를 이용했기때문에 보간법을 이용한 문자데이터
+  // })
+  // console.log(a)
+
+  // 화살표 함수 사용시 -> 
+
+  // const a = fruits.forEach((fruit, index) => {
+  //   console.log(`${fruit}-${index}`) 
+  // })
+  // console.log(a)
+
+  // const b = fruits.map(function (fruit, index) {
+  //   return `${fruit}-${index}`
+  // })
+  // console.log(b)
+  
+  // const b = fruits.map(function (fruit, index) {
+  //   return {
+  //     id: index,
+  //     name: fruit
+  //   }
+  // })
+
+  // const b = fruits.map((fruit, index) => ({
+  //     id: index,
+  //     name: fruit
+  // }))
+
+  // console.log(b)
+  
+  // .forEach와 .map의 차이
+  // -> 둘다 아이템의 갯수만큼 반복하지만 .forEach는 반환(return)하는 값이 없고
+  // -> .map은 값을 반환해서 새로운 배열로 만들어서 사용가능
+
+
+  // .filter()
+  // -> 걸러버림
+  // const numbers = [1, 2, 3, 4]
+  // const fruits = ['Apple', 'Banana', 'Cherry']
+
+  // const a = numbers.map(number => {
+  //   return number < 3
+  // })
+  // console.log(a)
+  // 화살표 기호 사용
+  // const a = numbers.map(number => number < 3)
+  // console.log(a)
+  
+  // const b  = numbers.filter(number => {
+  //   return number < 3
+  // })
+  // console.log(b)
+  // console.log(numbers)
+
+
+  // .find() .findindex()
+  // 찾은 아이템을 반환함
+
+  // const a = fruits.find(fruit => /^B/.test(fruit)) // /^B/ -> B로 시작하는 item 찾음
+  // console.log(a)
+
+  // const b = fruits.findIndex(fruit => /^B/.test(fruit)) // /^B/ -> B로 시작하는 item 찾음
+  // console.log(b)
+
+
+  // .includes()
+  // -> 인수로 사용되는 데이터가 특정 데이터에 포함여부
+
+  // const a = numbers. includes(3)
+  // console.log(a)
+
+  // const b = fruits.includes('HEROPY')
+  // console.log(b)
+
+  
+  // .push() .unshift()
+  // 원본 수정됨 주의!
+  // -> 배열데이터의 가장 뒷부분에 인수를 집어넣음
+
+  // numbers.push(5)
+  // console.log(numbers)
+
+  // numbers.unshift(0)
+  // console.log(numbers)
+
+
+  // .reverse()
+  // 원본 수정됨 주의!
+
+  // numbers.reverse()
+  // fruits.reverse()
+
+  // console.log(numbers)
+  // console.log(fruits)
+
+
+  // .splice()
+  // 원본 수정됨 주의!
+
+  // numbers.splice(2, 1) // index 2번째를 선택 -> 1개를 지워라 -> 12 (3)삭제 4
+                       // (2, 2) -> 1, 2
+
+  // numbers.splice(2, 1, 999) // 2번째 자리에 999를 집어넣어라 -> 1, 2, 999, 4
+  // fruits.splice(2, 1, 'oragne')
+  
+  // console.log(numbers)
+  // console.log(fruits)
+
+  
+
+  // --------------------------------------------------------------
+  // Object mdn
+
+  // 01 Object.assign
+    // const userAge = {
+    //   // key: value
+    //   name: 'Heropy',
+    //   age: 85
+    // }
+    // const userEmail = {
+    //   name: 'Heropy',
+    //   email: 'thesecon@gmail.com'
+    // }
+
+    // // const target = Object.assign(userAge, userEmail) // userAge에 userEmail을 덮어씌움
+    // const target = Object.assign({}, userAge, userEmail) // 원본데이터를 건드리지않고 {}에 넣음
+    // // .assign은 Object(전역객체) 뒤에만 직접적으로 사용할 수 있음
+    // // -> 정적메소드
+    // console.log(target)
+    // console.log(userAge)
+    // console.log(target === userAge)
+
+    // const a = { k: 123 }
+    // const b = { k: 123 }
+    // console.log(a === b)
+
+  // 02 Object.keys
+  const user = {
+    name: 'Heropy',
+    age: 85,
+    email: 'thekdjf@gmail.com'
+  }
+
+  const keys = Object.keys(user)
+  console.log(keys)
+  // ['name', 'age', 'email]
+
+  console.log(user['email'])
+
+  const values = keys.map(key => user[key])
+  console.log(values)
 
 
 
